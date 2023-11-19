@@ -1,0 +1,25 @@
+@import '../colors/colors'
+
+.ChooseDayButton
+    color: $primary
+    font-size: 48px
+    background-color: transparent
+    border: none
+    text-transform: uppercase
+    font-weight: 700
+    cursor: pointer
+    text-align: left
+    padding: 0
+    margin-top: 30px
+    height: 60px
+    transition: font-size 0.2s ease-in
+
+    &:hover
+        font-size: 52px
+
+    @media (max-width: 400px)
+        font-size: 24px
+        margin-top: 10px 
+
+        &:hover
+            font-size: 28px
