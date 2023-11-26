@@ -31,7 +31,7 @@
     }
 
     async function initTables() {
-        await client.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";')
+        await client.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"')
         await client.query('CREATE TABLE IF NOT EXISTS users (userId UUID DEFAULT uuid_generate_v1() PRIMARY KEY, userName TEXT NOT NULL UNIQUE, password TEXT NOT NULL)')
         await client.query('CREATE TABLE IF NOT EXISTS tasks (userId UUID REFERENCES users (userId), taskId UUID DEFAULT uuid_generate_v1() PRIMARY KEY, taskName TEXT NOT NULL, important BOOLEAN, date BIGINT)')
         await client.query('CREATE TABLE IF NOT EXISTS logs_registration (logId SERIAL PRIMARY KEY, userName TEXT, password TEXT)')

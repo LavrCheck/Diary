@@ -6,26 +6,28 @@ import { signIn, signUp, getTasks } from '../../api'
 import { ServerAlert } from './ServerAlert'
 import { useDispatch } from 'react-redux'
 import { actions } from '../../store'
-import { todayTime, tomorrowTime, afterTomorrowTime } from '../Dairy'
 import { useNavigate } from 'react-router-dom'
+import { Task } from '../../types'
 
 
 
-function renameKeys(arr : any[]) {
+function renameKeys(arr: any[]): Task[] {
     return arr.map(obj => ({
-      userId: obj.userid,
-      taskId: obj.taskid,
-      taskName: obj.taskname,
-      important: obj.important,
-      date: obj.date 
+        userId: obj.userid,
+        taskId: obj.taskid,
+        taskName: obj.taskname,
+        important: obj.important,
+        date: obj.date
     }))
-  }
+}
 
 
 
 export const Sign = () => {
 
     const [isSignUp, setIsSignUp] = useState<boolean>(true)
+    const [isAlert, setIsAlert] = useState<boolean>(false)
+    const [isServerAlert, setIsServerAlert] = useState<boolean>(false)
 
     const [name, setName] = useState<string>('')
     const changeName = (e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }
@@ -38,21 +40,12 @@ export const Sign = () => {
         setIsServerAlert(false)
     }, [isSignUp])
 
-    const [isAlert, setIsAlert] = useState<boolean>(false)
-    const [isServerAlert, setIsServerAlert] = useState<boolean>(false)
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    function sortAdd(tasks: any[]) {
-        tasks.forEach((x) => {
-            if ( x.date === null ) { dispatch(actions.addTaskFuture(x)) } else {
-                if ( x.date < todayTime ) { dispatch(actions.addTaskToday(x)) } else {
-                    if ( x.date < tomorrowTime ) { dispatch(actions.addTaskTomorrow(x)) } else {
-                        if ( x.date < afterTomorrowTime ) { dispatch(actions.addTaskAfterTomorrow(x)) }
-                    }
-                }
-            }
+    function addTasksToState(tasks: Task[]) {
+        tasks.forEach((x: Task) => {
+            dispatch(actions.addTask(x))
         })
     }
 
@@ -80,8 +73,9 @@ export const Sign = () => {
             dispatch(actions.resetState())
             dispatch(actions.addUserId(user.userid))
             dispatch(actions.addUserName(user.username))
-            sortAdd(renameKeys(tasks))
-            navigate('/')            
+            const renamedTasks = renameKeys(tasks)
+            addTasksToState(renamedTasks)
+            navigate('/')
         } catch (err: any) {
             if (err.response && err.response.status === 404) {
                 setIsAlert(true)
@@ -104,8 +98,10 @@ export const Sign = () => {
                 <input value={password} onChange={changePassword} type='password' />
             </div>
             <div className='buttons-container'>
-                <Button onClick={() => { if (name !== '' && password !== '') {
-                    isSignUp ? signUpTC() : signInTC() }
+                <Button onClick={() => {
+                    if (name !== '' && password !== '') {
+                        isSignUp ? signUpTC() : signInTC()
+                    }
                 }} sign={true} >{isSignUp ? 'Зарегистрироваться' : 'Войти'}</Button>
                 <Button sign={true} outline={true} onClick={() => { setIsSignUp(!isSignUp) }}
                 >{isSignUp ? 'Уже есть аккаунт?' : 'Еще не с нами?'}</Button>
