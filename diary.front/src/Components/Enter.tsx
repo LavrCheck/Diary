@@ -38,9 +38,9 @@ export const Enter = ({
     hideEnter: () => void
 }) => {
 
-    const [taskName, setTaskName] = useState('')
+    const [taskName, setTaskName] = useState<string>('')
     const changeTask = (e: any) => { setTaskName(e.target.value) }
-    const [isCheckbox, setIsCheckbox] = useState(false)
+    const [isCheckbox, setIsCheckbox] = useState<boolean>(false)
     const changeCheckbox = (e: any) => { setIsCheckbox(e.target.checked) }
 
     const dispatch = useDispatch()
