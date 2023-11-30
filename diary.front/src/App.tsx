@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 export function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/lavrcheck/diary/'>
       <Routes>
         <Route path='/*' element={
           <div className="App">
