@@ -6,11 +6,13 @@ import { useState } from 'react'
 export const PasswordInput = ({
     value,
     onChange,
-    placeholder
+    placeholder,
+    className
 }: {
     value: string
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-    placeholder: string
+    placeholder?: string
+    className?: string
 }) => {
 
     const [isPassword, setIsPassword] = useState(true)
@@ -18,7 +20,8 @@ export const PasswordInput = ({
 
     return (
         <div className="PasswordInput">
-            <input placeholder={placeholder} value={value} onChange={(e) => onChange(e)} type={isPassword ? 'password' : 'text'} />
+            <input placeholder={placeholder} value={value} onChange={(e) => onChange(e)} type={isPassword ? 'password' : 'text'}
+            className={className}/>
             <button onClick={() => setIsPassword(!isPassword)}><img src={isPassword ? eyeOpen : eyeClose} alt='eye'/></button>
         </div>
     )

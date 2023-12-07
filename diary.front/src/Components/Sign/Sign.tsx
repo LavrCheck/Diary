@@ -104,7 +104,7 @@ export const Sign = () => {
             <h1>{isSignUp ? 'Регистрация' : 'Вход'}</h1>
             <div className='inputs-container'>
                 <input value={name} onChange={changeName} type='text' placeholder='Имя'/>
-                <PasswordInput value={password} onChange={changePassword} placeholder='Пароль'/>
+                <PasswordInput className='password' value={password} onChange={changePassword} placeholder='Пароль'/>
                 {/* <input value={password} onChange={changePassword} type='password' /> */}
             </div>
             <div className='buttons-container'>

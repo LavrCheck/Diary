@@ -34,7 +34,7 @@ const Dairy = ({ tasks }: { tasks: TaskState }) => {
 
     return (
         <div className="Dairy">
-            <Authorization userId={tasks.userId} userName={tasks.userName} />
+            <Authorization userName={tasks.userName} />
             <Selector tasks={today} title='Сегодня' userId={tasks.userId} date={todayTime()} />
             <Selector tasks={tomorrow} title='Завтра' userId={tasks.userId} date={tomorrowTime()} />
             <Selector tasks={afterTomorrow} title='Послезавтра' userId={tasks.userId} date={afterTomorrowTime()} />
