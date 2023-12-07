@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { actions } from '../../store'
 import { useNavigate } from 'react-router-dom'
 import { Task } from '../../types'
+import { PasswordInput } from '../../ui/PasswordInput'
 
 
 
@@ -27,7 +28,14 @@ export const Sign = () => {
 
     const [isSignUp, setIsSignUp] = useState<boolean>(true)
     const [isAlert, setIsAlert] = useState<boolean>(false)
+    const [isAlertExists, setIsAlertExists] = useState<boolean>(true)
     const [isServerAlert, setIsServerAlert] = useState<boolean>(false)
+
+    function changeSign() {
+        setIsSignUp(!isSignUp)
+        setIsAlertExists(false)
+        setTimeout(() => setIsAlertExists(true), 1)
+    }
 
     const [name, setName] = useState<string>('')
     const changeName = (e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }
@@ -88,14 +96,16 @@ export const Sign = () => {
 
 
 
+
     return (<>
         {isServerAlert && <ServerAlert />}
         <div className="Sign">
-            <Alert isVisible={isAlert} isSignUp={isSignUp} />
+            {isAlertExists && <Alert isVisible={isAlert} isSignUp={isSignUp} />}
             <h1>{isSignUp ? 'Регистрация' : 'Вход'}</h1>
             <div className='inputs-container'>
-                <input value={name} onChange={changeName} type='text' />
-                <input value={password} onChange={changePassword} type='password' />
+                <input value={name} onChange={changeName} type='text' placeholder='Имя'/>
+                <PasswordInput value={password} onChange={changePassword} placeholder='Пароль'/>
+                {/* <input value={password} onChange={changePassword} type='password' /> */}
             </div>
             <div className='buttons-container'>
                 <Button onClick={() => {
@@ -103,7 +113,7 @@ export const Sign = () => {
                         isSignUp ? signUpTC() : signInTC()
                     }
                 }} sign={true} >{isSignUp ? 'Зарегистрироваться' : 'Войти'}</Button>
-                <Button sign={true} outline={true} onClick={() => { setIsSignUp(!isSignUp) }}
+                <Button sign={true} outline={true} onClick={() => changeSign()}
                 >{isSignUp ? 'Уже есть аккаунт?' : 'Еще не с нами?'}</Button>
             </div>
         </div>
