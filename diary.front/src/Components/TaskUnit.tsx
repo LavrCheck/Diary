@@ -34,14 +34,14 @@ export const TaskUnit = ({
                 {isImportant && <img src={important} className='important' alt='!' />}
                 <Button onClick={() => removeTask()}>
                     <svg
-                        id="Icons"
+                        id={`done-icon-${taskId}`}
                         viewBox="0 0 128 128"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="done-icon"
+                        className={`done-icon done-icon-${taskId}`}
                     >
                         <defs>
                             <linearGradient
-                                id="New_Gradient_Swatch_1"
+                                id={`gradient-${taskId}`}
                                 x1="12"
                                 x2="116"
                                 y1="64"
@@ -50,7 +50,7 @@ export const TaskUnit = ({
                                 <stop
                                     offset="0"
                                     stopColor="#5098ff"
-                                    className="gradient-stop"
+                                    className={`gradient-stop gradient-stop-${taskId}`}
                                 />
                             </linearGradient>
                         </defs>
@@ -60,7 +60,7 @@ export const TaskUnit = ({
                             x="12"
                             y="12"
                             rx="17.33"
-                            fill="url(#New_Gradient_Swatch_1)"
+                            fill={`url(#gradient-${taskId})`}
                         />
                         <path
                             fill="#fff"
