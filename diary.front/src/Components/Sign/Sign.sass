@@ -1,3 +1,5 @@
+@import '../../colors/colors.sass'
+    
 .Sign
     display: flex
     flex-direction: column
@@ -7,9 +9,9 @@
     width: 95%
     height: 400px
     padding: 10px 30px 20px 30px
-    border-radius: 70px
-    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3 )
-    background-color: #FFF
+    border-radius: 15px
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3 )
+    background-color: $white
     position: relative
 
     h1
@@ -29,21 +31,19 @@
         justify-content: space-between
 
         .password
-            padding: 5px 5px 5px 50px           
+            padding: 5px 5px 5px 50px
             text-indent: -45px
 
         input
             width: 100%
             height: 50px
             border: none
-            box-shadow: 0px 0px 5px #000
+            border: 1px solid darken($backgroundWhite, 30)
             padding: 5px
             font-size: 24px
             text-align: center
-            border-radius: 5px          
+            border-radius: 5px
 
             &:focus
-                border: 1px solid #000
+                border: 2px solid darken($backgroundWhite, 90)
                 outline: none
-
-                

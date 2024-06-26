@@ -7,7 +7,8 @@ export const Button = ({
     style,
     sign = false,
     outline = false,
-    signed = false
+    signed = false,
+    className
 }: {
     children: string | React.ReactElement
     onClick?: any
@@ -15,9 +16,10 @@ export const Button = ({
     sign?: boolean
     outline?: boolean
     signed?: boolean
+    className?: string
 }) => {
     return (
-        <button style={style} className={`Button ${sign ? 'sign' : ''} ${outline ? 'outline' : ''} ${signed ? 'signed' : ''}`}
+        <button style={style} className={`Button ${className ?? ''} ${sign ? 'sign' : ''} ${outline ? 'outline' : ''} ${signed ? 'signed' : ''}`}
             onClick={onClick}>{children}</button>
     )
 }

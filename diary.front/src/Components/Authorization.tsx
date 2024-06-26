@@ -14,7 +14,7 @@ export const Authorization = ({
 
     return (
         <div className="Authorization">
-            <p>{userName ? userName : 'Чтобы сохранять задачи нужно'}</p>
+            <p>{userName ? userName : 'Чтобы сохранять задачи, нужно'}</p>
             <Button sign={true} signed={userName ? true : false} outline={true} style={userName ? {} : { width: '100px' }}
                 onClick={() => navigate('/sign')} >{userName ? '' : 'Войти'}</Button>
         </div>

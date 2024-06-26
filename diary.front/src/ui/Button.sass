@@ -1,12 +1,13 @@
 @import '../colors/colors'
 @import '../images/svgs'
-    
+
 .Button
     height: 30px
     padding: 0px
     border: none
     background-color: transparent
     cursor: pointer
+    transition: background-color 0.2s ease, color 0.1s
 
     img
         height: 100%
@@ -16,13 +17,15 @@
         height: 40px
         background-color: $primary
         border-radius: 20px
-        color: #FFF
+        color: $white
         font-size: 20px
         letter-spacing: 1px
-        transition: background-color 0.2s ease, color 0.1s
 
         &:hover
             background-color: darken($primary,10)
+
+        &:active
+            color: $grey
 
         &.outline
             background-color: transparent
@@ -31,11 +34,11 @@
 
             &:hover
                 outline: unset
-                background-color: $primary
-                color: #FFF
+                background-color: darken($primary,10)
+                color: $white
 
             &:active
-                color: #b8b8b8
+                color: $grey
 
             &.signed
                 background-image: $exitBlue
@@ -47,12 +50,7 @@
 
                 @media (max-width: 400px)
                     height: 30px
-                    width: 30px                  
+                    width: 30px
 
                 &:hover
                     background-image: $exitWhite
-                
-
-
-        
-

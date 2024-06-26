@@ -1,10 +1,13 @@
+@import '../colors/colors.sass'
+
 .Dairy
     min-height: 100vh
     width: 100%
     max-width: 900px
     padding: 50px 20px
-    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3 )
-    background-color: #FFF
+    border-left: 1px solid darken($backgroundWhite, 10)
+    border-right: 1px solid darken($backgroundWhite, 10)
+    background-color: $white
 
-    @media( max-width: 1650px )
+    @media( max-width: 1130px )
         position: relative

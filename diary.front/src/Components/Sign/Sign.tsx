@@ -105,7 +105,6 @@ export const Sign = () => {
             <div className='inputs-container'>
                 <input value={name} onChange={changeName} type='text' placeholder='Имя'/>
                 <PasswordInput className='password' value={password} onChange={changePassword} placeholder='Пароль'/>
-                {/* <input value={password} onChange={changePassword} type='password' /> */}
             </div>
             <div className='buttons-container'>
                 <Button onClick={() => {

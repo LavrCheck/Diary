@@ -1,12 +1,13 @@
 import './Enter.sass'
 import important from '../images/important.svg'
-import submitEnter from '../images/submitEnter.svg'
+import arrowUp from '../images/arrowUp.svg'
 import { Button } from '../ui/Button'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { v1 as uuidv1 } from 'uuid';
 import { actions } from '../store'
 import { useDispatch } from 'react-redux'
 import { addTaskBD } from '../api'
+import { InputSwitch } from 'primereact/inputswitch'
 
 
 
@@ -39,14 +40,20 @@ export const Enter = ({
 }) => {
 
     const [taskName, setTaskName] = useState<string>('')
-    const changeTask = (e: any) => { setTaskName(e.target.value) }
     const [isCheckbox, setIsCheckbox] = useState<boolean>(false)
-    const changeCheckbox = (e: any) => { setIsCheckbox(e.target.checked) }
+
+    const taskInputRef = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+        if (taskInputRef.current) {
+            taskInputRef.current.focus()
+        }
+    }, [])
 
     const dispatch = useDispatch()
 
     async function submit() {
         hideEnter()
+        if (!taskName) { return }
         dispatch(actions.addTask(new Task(userId, taskName, isCheckbox, date)))
         if (userId !== null) { await addTaskBD(new Task(userId, taskName, isCheckbox, date)) }
     }
@@ -55,12 +62,23 @@ export const Enter = ({
 
     return (
         <div className="Enter">
-            <input value={taskName} onChange={changeTask} type='text' className='task' />
+            <input
+                value={taskName}
+                onChange={(e) => setTaskName(e.target.value)}
+                type='text'
+                className='task-input'
+                ref={taskInputRef}
+            />
             <div className='important'>
-                <input checked={isCheckbox} onChange={changeCheckbox} type='checkbox' />
-                <img src={important} alt='!' />
+                <InputSwitch
+                    checked={isCheckbox}
+                    onChange={(e) => setIsCheckbox(e.value)}
+                />
+                <img src={important} />
             </div>
-            <Button onClick={() => submit()} ><img src={submitEnter} alt='+' /></Button>
+            <Button onClick={() => submit()} >
+                <img src={arrowUp} />
+            </Button>
         </div>
     )
 }

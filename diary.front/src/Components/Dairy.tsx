@@ -10,9 +10,9 @@ const mapStateToProps = (state: { tasks: TaskState }) => ({
     tasks: state.tasks
 })
 
-const todayTime = () : number => new Date().getTime()
-const tomorrowTime = () : number => new Date().getTime() + (24 * 60 * 60 * 1000) // Добавляем 1 день в миллисекундах
-const afterTomorrowTime = () : number => new Date().getTime() + (2 * 24 * 60 * 60 * 1000) // Добавляем 2 дня в миллисекундах
+const todayTime = (): number => new Date().getTime()
+const tomorrowTime = (): number => new Date().getTime() + (24 * 60 * 60 * 1000) // Добавляем 1 день в миллисекундах
+const afterTomorrowTime = (): number => new Date().getTime() + (2 * 24 * 60 * 60 * 1000) // Добавляем 2 дня в миллисекундах
 
 
 
