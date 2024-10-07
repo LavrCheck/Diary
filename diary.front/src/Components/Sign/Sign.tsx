@@ -57,7 +57,7 @@ export const Sign = () => {
         })
     }
 
-    async function signUpTC() { // TC - Try Catch
+    async function signUpTC() {
         try {
             const user = await signUp(name, password)
             dispatch(actions.resetState())

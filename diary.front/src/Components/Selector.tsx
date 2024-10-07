@@ -1,10 +1,9 @@
 import './Selector.sass'
 import {ChooseDayButton} from '../ui/ChooseDayButton'
 import {Enter} from './Enter'
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {TaskUnit} from './TaskUnit'
 import {Task} from '../types'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 
 
@@ -21,11 +20,6 @@ export const Selector = ({
 }) => {
 
     const [isEnterVisible, setIsEnterVisible] = useState(false)
-    const [tasksList, setTasksList] = useState<Task[]>(tasks);
-
-    useEffect(() => {
-        setTasksList(tasks); // Обновление состояния при изменении массива задач
-    }, [tasks]);
 
     return (
         <div className="Selector">

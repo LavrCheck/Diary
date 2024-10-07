@@ -1,13 +1,9 @@
 import './TaskUnit.sass'
 import important from '../images/important.svg'
-import doneTask from '../images/doneTask.svg'
 import {Button} from '../ui/Button'
 import {useDispatch} from 'react-redux'
 import {actions} from '../store'
 import {removeTaskBD} from '../api'
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
-import {Task} from "../types";
-import {useEffect, useState} from "react";
 
 
 export const TaskUnit = ({
