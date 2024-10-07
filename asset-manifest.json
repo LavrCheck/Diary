@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Dairy/static/css/main.cd3100ab.css",
-    "main.js": "/Dairy/static/js/main.4c70e22a.js",
+    "main.css": "/Dairy/static/css/main.6f90a50d.css",
+    "main.js": "/Dairy/static/js/main.034195b9.js",
     "static/js/453.f6967a54.chunk.js": "/Dairy/static/js/453.f6967a54.chunk.js",
     "static/media/primeicons.svg": "/Dairy/static/media/primeicons.6ed59f962963a4a73af2.svg",
     "static/media/primeicons.eot": "/Dairy/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
@@ -15,12 +15,12 @@
     "static/media/eyeOpen.svg": "/Dairy/static/media/eyeOpen.97703009df738d07c7790b39b5bf2f23.svg",
     "index.html": "/Dairy/index.html",
     "static/media/arrowUp.svg": "/Dairy/static/media/arrowUp.e6a49ad7ceab97007e0dca04f1873a5c.svg",
-    "main.cd3100ab.css.map": "/Dairy/static/css/main.cd3100ab.css.map",
-    "main.4c70e22a.js.map": "/Dairy/static/js/main.4c70e22a.js.map",
+    "main.6f90a50d.css.map": "/Dairy/static/css/main.6f90a50d.css.map",
+    "main.034195b9.js.map": "/Dairy/static/js/main.034195b9.js.map",
     "453.f6967a54.chunk.js.map": "/Dairy/static/js/453.f6967a54.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd3100ab.css",
-    "static/js/main.4c70e22a.js"
+    "static/css/main.6f90a50d.css",
+    "static/js/main.034195b9.js"
   ]
 }
