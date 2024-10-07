@@ -1,5 +1,6 @@
 {
   "name": "diary",
+  "homepage": "https://lavrcheck.github.io/Dairy",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +13,7 @@
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.14",
     "axios": "^1.6.2",
+    "gh-pages": "^6.1.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.6.6",
     "react": "^18.2.0",
@@ -19,12 +21,15 @@
     "react-redux": "^8.1.3",
     "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "redux": "^4.2.1",
     "sass": "^1.69.5",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

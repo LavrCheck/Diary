@@ -11,7 +11,7 @@ class User {
 }
 
 
-const globalHost = process.env.REACT_APP_API_HOST
+const globalHost = `https://valit.dev//lavrcheck/diary/api`
 
 
 

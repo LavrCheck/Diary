@@ -25,7 +25,7 @@ const taskSlice = createSlice({
             state.userId = action.payload
         },
         addTask(state, action: PayloadAction<Task>) {
-            state.tasks.push(action.payload)
+            state.tasks.unshift(action.payload)
         },
         removeTask(state, action: PayloadAction<string>) {
             state.tasks = state.tasks.filter(x => x.taskId !== action.payload)

@@ -1,14 +1,13 @@
 import './Enter.sass'
 import important from '../images/important.svg'
 import arrowUp from '../images/arrowUp.svg'
-import { Button } from '../ui/Button'
-import { useEffect, useRef, useState } from 'react'
-import { v1 as uuidv1 } from 'uuid';
-import { actions } from '../store'
-import { useDispatch } from 'react-redux'
-import { addTaskBD } from '../api'
-import { InputSwitch } from 'primereact/inputswitch'
-
+import {Button} from '../ui/Button'
+import {useEffect, useRef, useState} from 'react'
+import {v1 as uuidv1} from 'uuid';
+import {actions} from '../store'
+import {useDispatch} from 'react-redux'
+import {addTaskBD} from '../api'
+import {InputSwitch} from 'primereact/inputswitch'
 
 
 class Task {
@@ -28,15 +27,16 @@ class Task {
 }
 
 
-
 export const Enter = ({
-    userId,
-    date,
-    hideEnter,
-}: {
+                          userId,
+                          date,
+                          hideEnter,
+                          isEnterVisible
+                      }: {
     userId: string | null
     date: number | null
     hideEnter: () => void
+    isEnterVisible?: boolean
 }) => {
 
     const [taskName, setTaskName] = useState<string>('')
@@ -51,14 +51,20 @@ export const Enter = ({
 
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        if (isEnterVisible) setTaskName('')
+    }, [isEnterVisible]);
+
     async function submit() {
         hideEnter()
-        if (!taskName) { return }
+        if (!taskName) {
+            return
+        }
         dispatch(actions.addTask(new Task(userId, taskName, isCheckbox, date)))
-        if (userId !== null) { await addTaskBD(new Task(userId, taskName, isCheckbox, date)) }
+        if (userId !== null) {
+            await addTaskBD(new Task(userId, taskName, isCheckbox, date))
+        }
     }
-
-
 
     return (
         <div className="Enter">
@@ -74,10 +80,10 @@ export const Enter = ({
                     checked={isCheckbox}
                     onChange={(e) => setIsCheckbox(e.value)}
                 />
-                <img src={important} />
+                <img src={important}/>
             </div>
-            <Button onClick={() => submit()} >
-                <img src={arrowUp} />
+            <Button onClick={() => submit()}>
+                <img src={arrowUp}/>
             </Button>
         </div>
     )

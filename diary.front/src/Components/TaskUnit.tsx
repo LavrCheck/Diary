@@ -1,19 +1,21 @@
 import './TaskUnit.sass'
 import important from '../images/important.svg'
 import doneTask from '../images/doneTask.svg'
-import { Button } from '../ui/Button'
-import { useDispatch } from 'react-redux'
-import { actions } from '../store'
-import { removeTaskBD } from '../api'
-
+import {Button} from '../ui/Button'
+import {useDispatch} from 'react-redux'
+import {actions} from '../store'
+import {removeTaskBD} from '../api'
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {Task} from "../types";
+import {useEffect, useState} from "react";
 
 
 export const TaskUnit = ({
-    title,
-    isImportant,
-    taskId,
-    userId
-}: {
+                             title,
+                             isImportant,
+                             taskId,
+                             userId,
+                         }: {
     title?: string
     isImportant?: boolean
     taskId: string
@@ -24,14 +26,16 @@ export const TaskUnit = ({
 
     async function removeTask() {
         dispatch(actions.removeTask(taskId))
-        if (userId !== null) { await removeTaskBD(taskId) }
+        if (userId !== null) {
+            await removeTaskBD(taskId)
+        }
     }
 
     return (
-        <div className="TaskUnit">
+        <div className={`TaskUnit`}>
             <p>{title}</p>
             <div>
-                {isImportant && <img src={important} className='important' alt='!' />}
+                {isImportant && <img src={important} className='important' alt='!'/>}
                 <Button onClick={() => removeTask()}>
                     <svg
                         id={`done-icon-${taskId}`}

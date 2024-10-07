@@ -12,7 +12,7 @@ import 'primeicons/primeicons.css'
 export function App() {
 
   return (
-    <BrowserRouter basename='/lavrcheck/diary'>
+    <BrowserRouter basename='/Dairy'>
       <Routes>
         <Route path='/*' element={
           <div className="App">
