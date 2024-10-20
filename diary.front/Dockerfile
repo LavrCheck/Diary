@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:latest-alpine
+FROM node:latest
 
 RUN npm install -g serve
 
