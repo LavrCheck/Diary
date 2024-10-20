@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["node", "index.tsx"]
+CMD ["node", "bin/www"]
