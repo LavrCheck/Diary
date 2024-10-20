@@ -14,8 +14,10 @@ FROM node:latest
 
 RUN npm install -g serve
 
-COPY --from=build /app/build /app/build
+COPY --from=build /app/dist /app/dist
+
+WORKDIR /app
 
 EXPOSE 3000
 
-CMD ["serve", "-s", "build", "-l", "3000"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
