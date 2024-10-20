@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.sass'
-import Diary from './Components/Dairy'
+import Diary from './Components/Diary'
 import { Sign } from './Components/Sign/Sign'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'primereact/resources/themes/saga-blue/theme.css'
@@ -12,7 +12,7 @@ import 'primeicons/primeicons.css'
 export function App() {
 
   return (
-    <BrowserRouter basename='/Dairy'>
+    <BrowserRouter basename='/Diary'>
       <Routes>
         <Route path='/*' element={
           <div className="App">

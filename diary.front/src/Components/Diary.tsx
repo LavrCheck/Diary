@@ -1,5 +1,5 @@
 import { Selector } from "./Selector"
-import './Dairy.sass'
+import './Diary.sass'
 import { connect } from 'react-redux'
 import { TaskState, Task } from '../types'
 import { Authorization } from "./Authorization"
@@ -16,7 +16,7 @@ const afterTomorrowTime = (): number => new Date().getTime() + (2 * 24 * 60 * 60
 
 
 
-const Dairy = ({ tasks }: { tasks: TaskState }) => {
+const Diary = ({ tasks }: { tasks: TaskState }) => {
 
     const today: Task[] = []
     const tomorrow: Task[] = []
@@ -43,4 +43,4 @@ const Dairy = ({ tasks }: { tasks: TaskState }) => {
     )
 }
 
-export default connect(mapStateToProps)(Dairy)
+export default connect(mapStateToProps)(Diary)
