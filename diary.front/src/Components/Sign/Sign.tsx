@@ -1,7 +1,7 @@
 import { Button } from '../../ui/Button'
 import { Alert } from './Alert'
 import './Sign.sass'
-import { useEffect, useState } from 'react'
+import {ChangeEvent, useEffect, useState} from 'react'
 import { signIn, signUp, getTasks } from '../../api'
 import { ServerAlert } from './ServerAlert'
 import { useDispatch } from 'react-redux'
@@ -38,9 +38,9 @@ export const Sign = () => {
     }
 
     const [name, setName] = useState<string>('')
-    const changeName = (e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }
+    const changeName = (e: ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }
     const [password, setPassword] = useState<string>('')
-    const changePassword = (e: React.ChangeEvent<HTMLInputElement>) => { setPassword(e.target.value) }
+    const changePassword = (e: ChangeEvent<HTMLInputElement>) => { setPassword(e.target.value) }
     useEffect(() => {
         setName('')
         setPassword('')

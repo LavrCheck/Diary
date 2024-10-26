@@ -6,17 +6,18 @@ import {actions} from '../store'
 import {removeTaskBD} from '../api'
 
 
-export const TaskUnit = ({
-                             title,
-                             isImportant,
-                             taskId,
-                             userId,
-                         }: {
-    title?: string
-    isImportant?: boolean
-    taskId: string
-    userId: string | null
-}) => {
+export const TaskUnit = (
+    {
+        title,
+        isImportant,
+        taskId,
+        userId,
+    }: {
+        title?: string
+        isImportant?: boolean
+        taskId: string
+        userId: string | null
+    }) => {
 
     const dispatch = useDispatch()
 

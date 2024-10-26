@@ -14,7 +14,6 @@ class User {
 const globalHost = `https://valit.dev//lavrcheck/diary/api`
 
 
-
 export async function signUp(userName: string, password: string) {
     const result = await axios.post(`${globalHost}/users/auth/sign-up`, new User(userName, password))
     return result.data

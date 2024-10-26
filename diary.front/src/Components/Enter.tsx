@@ -27,17 +27,18 @@ class Task {
 }
 
 
-export const Enter = ({
-                          userId,
-                          date,
-                          hideEnter,
-                          isEnterVisible
-                      }: {
-    userId: string | null
-    date: number | null
-    hideEnter: () => void
-    isEnterVisible?: boolean
-}) => {
+export const Enter = (
+    {
+        userId,
+        date,
+        hideEnter,
+        isEnterVisible
+    }: {
+        userId: string | null
+        date: number | null
+        hideEnter: () => void
+        isEnterVisible?: boolean
+    }) => {
 
     const [taskName, setTaskName] = useState<string>('')
     const [isCheckbox, setIsCheckbox] = useState<boolean>(false)
